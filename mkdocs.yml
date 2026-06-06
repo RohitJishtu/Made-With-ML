@@ -3,6 +3,19 @@ site_url: https://madewithml.com/
 repo_url: https://github.com/GokuMohandas/Made-With-ML/
 nav:
   - Home: index.md
+  - 2-Month MLOps Course:
+    - Overview: course/index.md
+    - Tech Stack: course/tech-stack.md
+    - Schedule: course/schedule.md
+    - Week 1 - Foundations: course/week-01-foundations.md
+    - Week 2 - Data Engineering: course/week-02-data-engineering.md
+    - Week 3 - Modeling: course/week-03-modeling.md
+    - Week 4 - Evaluation & Tuning: course/week-04-evaluation-tuning.md
+    - Week 5 - Serving: course/week-05-serving.md
+    - Week 6 - Testing & CI/CD: course/week-06-testing-cicd.md
+    - Week 7 - Orchestration: course/week-07-orchestration.md
+    - Week 8 - Monitoring & Capstone: course/week-08-monitoring-capstone.md
+    - Exercises: course/exercises.md
   - madewithml:
     - data: madewithml/data.md
     - models: madewithml/models.md

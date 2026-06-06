@@ -26,6 +26,7 @@ Learn how to combine machine learning with software engineering to design, devel
 
 - Lessons: https://madewithml.com/
 - Code: [GokuMohandas/Made-With-ML](https://github.com/GokuMohandas/Made-With-ML)
+- **2-Month MLOps Course (open source)**: [docs/course/index.md](docs/course/index.md) — 8-week curriculum using Ray, MLflow, pytest, Docker, and Kubernetes
 
 <a href="https://madewithml.com/#course">
   <img src="https://madewithml.com/static/images/lessons.png" alt="lessons">
