@@ -50,6 +50,24 @@ Supplementary exercises if you finish a week early or want extra practice. All u
 2. **Shadow deployment:** Document how to route 10% of traffic to a new model version without affecting responses.
 3. **Feedback loop:** Design a schema for storing user corrections to predictions for future retraining.
 
+## Week 9 — AIOps: RAG
+
+1. **Chunk size ablation:** Rebuild index with 256 vs 512 vs 1024 token chunks; compare retrieval quality.
+2. **Hybrid search:** Add keyword (BM25) + vector retrieval; document when hybrid wins.
+3. **Prompt PR:** Open a PR that only changes `prompts/rag_system.txt`; review like application code.
+
+## Week 10 — AIOps: Eval & ops
+
+1. **Eval set expansion:** Grow `datasets/rag_eval.jsonl` to 25 examples; track faithfulness over time.
+2. **CI eval gate:** Add a GitHub Actions job running `tests/aiops/` on every PR.
+3. **Unified health:** Extend `/health` to report classifier `run_id`, RAG index timestamp, and Ollama model name.
+
+## Session operations (facilitators)
+
+1. **Dry run:** Facilitate Session 3 (modeling) solo using [session-templates.md](sessions/session-templates.md); time each segment.
+2. **FAQ doc:** After a cohort week, add top 3 blockers to your channel pinned FAQ.
+3. **Alumni lab:** Host a 30-min show-and-tell using [alumni-track.md](sessions/alumni-track.md) month 7 format.
+
 ## Challenge projects (multi-week)
 
 | Project | Difficulty | Tools |

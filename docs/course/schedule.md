@@ -1,6 +1,6 @@
-# 8-Week Schedule
+# 10-Week Schedule
 
-Two months, eight modules. Each week assumes **10–15 hours** of study and hands-on work.
+**8 weeks MLOps** + **2 weeks AIOps**. Each week assumes **10–15 hours** of study and hands-on work. MLOps-only cohorts stop after Week 8 and may return later for Weeks 9–10.
 
 ## Calendar at a glance
 
@@ -13,9 +13,11 @@ Two months, eight modules. Each week assumes **10–15 hours** of study and hand
 | 5 | Jul 7 – Jul 13 | Serving & APIs | 12h |
 | 6 | Jul 14 – Jul 20 | Testing & CI/CD | 12h |
 | 7 | Jul 21 – Jul 27 | Docker & Kubernetes | 15h |
-| 8 | Jul 28 – Aug 3 | Monitoring & capstone | 15h |
+| 8 | Jul 28 – Aug 3 | Monitoring & MLOps capstone | 15h |
+| 9 | Aug 4 – Aug 10 | AIOps: RAG & LLM serving | 12h |
+| 10 | Aug 11 – Aug 17 | AIOps: Eval, guardrails & capstone | 15h |
 
-Adjust start dates to your own calendar. The sequence matters more than the exact dates.
+Adjust dates to your calendar. Use [sessions/cohort-registry.md](sessions/cohort-registry.md) to log your cohort dates.
 
 ## Daily rhythm (suggested)
 
@@ -23,33 +25,32 @@ Adjust start dates to your own calendar. The sequence matters more than the exac
 
 | Day | Activity |
 |-----|----------|
-| Mon | Read weekly guide + watch overview material |
+| Mon | Read weekly guide + learning objectives |
 | Tue | Lab 1 — explore notebook / scripts |
-| Wed | Lab 2 — implement exercises |
-| Thu | Lab 3 — tests and debugging |
+| Wed | **Live session** (90 min) — [session templates](sessions/session-templates.md) |
+| Thu | Lab 2 — implement exercises / office hours |
 | Fri | Deliverable + reflection notes |
 
-**Weekend supplement (+2–5h)** for GPU training runs, CI setup, or capstone work.
+**Weekend supplement (+2–5h)** for GPU runs, CI setup, or capstone work.
 
 ## Milestone map
 
 ```mermaid
 gantt
-    title MLOps Course Milestones
+    title MLOps + AIOps Milestones
     dateFormat YYYY-MM-DD
-    section Foundation
+    section MLOps
     Environment + design doc     :m1, 2026-06-09, 7d
-    section Data
     GE validation suite          :m2, 2026-06-16, 7d
-    section ML
     MLflow tracked model         :m3, 2026-06-23, 7d
     Tuning + eval report         :m4, 2026-06-30, 7d
-    section Production
     Live API                     :m5, 2026-07-07, 7d
-    CI on your fork              :m6, 2026-07-14, 7d
-    section Scale
-    Docker + K8s deploy          :m7, 2026-07-21, 7d
-    Monitoring + capstone      :m8, 2026-07-28, 7d
+    CI on fork                   :m6, 2026-07-14, 7d
+    Docker + K8s                 :m7, 2026-07-21, 7d
+    MLOps capstone               :m8, 2026-07-28, 7d
+    section AIOps
+    RAG + LLM serving            :m9, 2026-08-04, 7d
+    Eval + guardrails capstone   :m10, 2026-08-11, 7d
 ```
 
 ## Phase breakdown
@@ -64,31 +65,42 @@ Learn ML system design and implement the core ML loop — data → train → eva
 
 Refactor to production code, serve predictions, and automate quality gates with CI/CD.
 
-**Exit criteria:** A PR on your fork triggers training tests; merging deploys (or simulates deployment of) the service.
+**Exit criteria:** A PR on your fork triggers tests; merge path defined for deployment.
 
 ### Phase 3: Operate (Weeks 7–8)
 
-Containerize, orchestrate on Kubernetes, add monitoring, and complete an independent capstone.
+Containerize, orchestrate on Kubernetes, add monitoring, and complete the MLOps capstone.
 
-**Exit criteria:** Capstone demo with architecture diagram, live or recorded API demo, and monitoring snapshot.
+**Exit criteria:** MLOps capstone demo with architecture diagram and monitoring snapshot.
+
+### Phase 4: AI Operations (Weeks 9–10)
+
+Build a RAG assistant, evaluate LLM quality, add guardrails and tracing, deliver AIOps capstone.
+
+**Exit criteria:** `/ask` API with eval scores, guardrails, and traces documented.
+
+### Phase 5: Stay alive (ongoing)
+
+Monthly [alumni sessions](sessions/alumni-track.md) and the next cohort — see [sessions/cohort-playbook.md](sessions/cohort-playbook.md).
 
 ## Flex pacing
 
 | Pace | Adjustment |
 |------|------------|
+| **MLOps only (8 weeks)** | Stop after Week 8; schedule Weeks 9–10 as a follow-on cohort |
 | **Full-time (20h/week)** | Combine weeks 1–2 and 5–6; start capstone in week 6 |
-| **Part-time (5h/week)** | Stretch to 16 weeks — one module every two weeks |
-| **Experienced MLE** | Skip week 1 readings; start at week 3; use capstone for a work project |
+| **Part-time (5h/week)** | Stretch to 20 weeks — one module every two weeks |
+| **AIOps only** | Prerequisites: complete Weeks 1–8 or equivalent; start at Week 9 |
 
 ## Assessment (self-paced)
 
-There are no grades. Use these rubrics to evaluate your own work:
-
 | Deliverable | Good | Excellent |
 |-------------|------|-----------|
-| System design doc | Problem, data, metrics defined | Includes failure modes and SLAs |
+| System design doc | Problem, data, metrics defined | Failure modes and SLAs |
 | Data validation | Schema + null checks | Distribution tests + docs |
-| MLflow experiment | Params and metrics logged | Artifacts versioned, compared across runs |
-| API | Returns predictions via HTTP | Latency measured, error handling |
-| CI pipeline | Tests pass on push | Train + eval results posted to PR |
-| Capstone | Extends base project | Novel dataset, monitoring, and write-up |
+| MLflow experiment | Params and metrics logged | Artifacts versioned across runs |
+| API | `/predict` returns via HTTP | Latency measured, error handling |
+| CI pipeline | Tests pass on push | Eval results on PR |
+| MLOps capstone | Extends base project | Novel dataset + monitoring |
+| RAG assistant | Answers with sources | Traced + prompt versioned |
+| AIOps capstone | Eval scores documented | CI eval gate + guardrails |

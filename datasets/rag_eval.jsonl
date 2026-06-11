@@ -1,0 +1,5 @@
+{"question": "What is transfer learning with transformers?", "ground_truth": "Transfer learning uses pretrained transformer models on new tasks.", "must_mention": ["transformers"]}
+{"question": "How do I deploy ML models to production?", "ground_truth": "Use CI/CD pipelines, serving infrastructure, and monitoring.", "must_mention": ["deploy", "production"]}
+{"question": "What are good computer vision projects?", "ground_truth": "Computer vision projects include object detection and image classification.", "must_mention": ["vision"]}
+{"question": "Explain MLOps best practices.", "ground_truth": "MLOps combines ML with software engineering for reliable production systems.", "must_mention": ["MLOps"]}
+{"question": "What is natural language processing used for?", "ground_truth": "NLP is used for text classification, generation, and understanding.", "must_mention": ["language"]}

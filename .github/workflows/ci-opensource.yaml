@@ -18,3 +18,4 @@ jobs:
       - run: export PYTHONPATH=$PYTHONPATH:$PWD
       - run: python3 -m pytest tests/code --verbose --disable-warnings
       - run: pytest tests/data --dataset-loc=datasets/dataset.csv --verbose --disable-warnings
+      - run: python3 -m pytest tests/aiops --verbose --disable-warnings

@@ -160,10 +160,18 @@ Review the full [course checklist](index.md#weekly-deliverables-checklist):
 - [ ] Week 7: Docker + K8s manifests
 - [ ] Week 8: Monitoring + capstone
 
+## What comes next
+
+**Continue to AIOps (Weeks 9–10):** [Week 9: RAG & LLM Serving](week-09-aiops-rag-llm-serving.md)
+
+**MLOps-only path:** Join [alumni sessions](sessions/alumni-track.md) or return when the next cohort runs Weeks 9–10.
+
+**Facilitators:** Record outcomes in [cohort-registry.md](sessions/cohort-registry.md) and update [CHANGELOG.md](CHANGELOG.md).
+
 ## Congratulations
 
 You have built a production-minded ML system with open source tools:
 
 **Ray · PyTorch · MLflow · pytest · Great Expectations · GitHub Actions · Docker · Kubernetes**
 
-Share your capstone in your portfolio, resume, or blog. The codebase in your fork is the proof.
+Share your MLOps capstone in your portfolio. Continue to Week 9 to add LLM operations on top of this foundation.

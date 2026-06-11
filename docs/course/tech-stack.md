@@ -79,6 +79,34 @@ flowchart LR
 | scikit-learn | Metrics and utilities |
 | pandas / numpy | Data manipulation |
 
+## AIOps stack (Weeks 9–10)
+
+Install with `pip install -r requirements-aiops.txt`.
+
+| Layer | Tool | Role in this course | Repo usage |
+|-------|------|---------------------|------------|
+| LLM runtime | [Ollama](https://ollama.com) | Local open source LLM serving | `deploy/docker-compose.yaml` |
+| Embeddings | [sentence-transformers](https://www.sbert.net/) | Text embeddings for retrieval | `madewithml/aiops/rag.py` |
+| Vector store | [Chroma](https://www.trychroma.com/) | Persist document index | `results/rag_index/` |
+| RAG framework | [LlamaIndex](https://www.llamaindex.ai/) | Chunk, retrieve, generate | `madewithml/aiops/rag.py` |
+| Tracing | [Langfuse](https://langfuse.com/) | LLM request traces (self-hosted) | `--trace` flag on `rag.py ask` |
+| LLM eval | [Ragas](https://docs.ragas.io/) | Faithfulness, relevancy scores | `madewithml/aiops/evaluate.py` |
+| Prompt testing | [promptfoo](https://www.promptfoo.dev/) | Regression tests for prompts | `madewithml/aiops/promptfooconfig.yaml` |
+| Guardrails | `madewithml/aiops/guards.py` | Input/output safety checks | Lightweight built-in guards |
+
+```mermaid
+flowchart LR
+    Q[User question] --> G1[Input guards]
+    G1 --> RAG[RAG retrieve]
+    RAG --> OLL[Ollama LLM]
+    OLL --> G2[Output guards]
+    G2 --> API[/ask response]
+    RAG --> LF[Langfuse trace]
+    API --> EV[Ragas eval]
+```
+
+See [aiops-track.md](aiops-track.md) for MLOps vs AIOps comparison.
+
 ## Optional extensions (Week 7–8)
 
 | Tool | Purpose | When to add |
@@ -112,6 +140,7 @@ You can still follow the Anyscale path from the main README if you have access �
 | Training (1 GPU epoch) | CPU only (slow) | 1× T4 or better, 16 GB RAM |
 | Tuning (2–5 trials) | CPU, expect hours | 1–2 GPUs |
 | Serving | 2 CPU, 4 GB RAM | 2 CPU, 8 GB RAM |
+| AIOps / RAG (Week 9–10) | 16 GB RAM, CPU Ollama | 16 GB RAM + GPU optional |
 
 Free GPU options: Google Colab (notebook only), Kaggle kernels, or a cloud free tier VM.
 
@@ -128,4 +157,9 @@ mlflow server -h 0.0.0.0 -p 8080 --backend-store-uri ./mlruns
 
 # Start Ray (local)
 ray start --head
+
+# AIOps stack (Weeks 9-10)
+pip install -r requirements-aiops.txt
+docker compose -f deploy/docker-compose.yaml up ollama mlflow -d
+python madewithml/aiops/rag.py build-index --corpus datasets/projects.csv
 ```

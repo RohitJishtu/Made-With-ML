@@ -1,7 +1,7 @@
 ## Documentation
 
 - [madewithml](madewithml/data.md): API documentation for each module.
-- [2-Month MLOps Course](course/index.md): open source, 8-week hands-on curriculum.
+- [MLOps + AIOps Course](course/index.md): open source 10-week curriculum with [session operations](course/sessions/README.md) for repeat cohorts.
 
 ## Lessons
 

@@ -1,0 +1,46 @@
+name: Cohort Feedback
+description: Share feedback after a course cohort to improve future sessions
+title: "[Cohort Feedback] "
+labels: ["cohort-feedback"]
+body:
+  - type: input
+    id: cohort
+    attributes:
+      label: Cohort name
+      placeholder: "Spring 2026 — Cohort A"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: format
+    attributes:
+      label: Format
+      options:
+        - 8-week MLOps only
+        - 10-week MLOps + AIOps
+        - Alumni session
+    validations:
+      required: true
+
+  - type: textarea
+    id: blockers
+    attributes:
+      label: Top blockers
+      description: What slowed learners down most?
+      placeholder: "Week 6 GitHub auth, Ollama on Windows, ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: improvements
+    attributes:
+      label: Suggested improvements
+      description: What should change in the docs or labs?
+    validations:
+      required: true
+
+  - type: textarea
+    id: highlights
+    attributes:
+      label: What worked well
+      description: Labs, sessions, or materials to keep
