@@ -32,6 +32,14 @@ deploy/             # Docker, Compose, Kubernetes manifests
 docs/course/        # Full 10-week curriculum
 ```
 
+## Private repository setup
+
+Create an empty **private** repo on GitHub named `AI_ML_Ops` (no README), then push:
+
+```bash
+./scripts/setup_private_repo.sh YOUR_GITHUB_USERNAME
+```
+
 ## Setup
 
 ```bash
