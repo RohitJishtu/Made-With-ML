@@ -5,7 +5,7 @@ Supplementary exercises if you finish a week early or want extra practice. All u
 ## Week 1 — Foundations
 
 1. **Ray basics:** Initialize a local Ray cluster and run `@ray.remote` functions in parallel. Time 1 vs 8 workers summing a large array.
-2. **Config audit:** List every hardcoded value in `notebooks/madewithml.ipynb` that should be a CLI arg in production.
+2. **Config audit:** List every hardcoded value in `notebooks/course.ipynb` that should be a CLI arg in production.
 3. **Competitive analysis:** Pick two open source MLOps platforms (e.g. MLflow vs Kubeflow) and write a one-page comparison.
 
 ## Week 2 — Data
@@ -34,7 +34,7 @@ Supplementary exercises if you finish a week early or want extra practice. All u
 
 ## Week 6 — CI/CD
 
-1. **Coverage gate:** Fail CI if `pytest-cov` reports below 80% on `madewithml/`.
+1. **Coverage gate:** Fail CI if `pytest-cov` reports below 80% on `ai_ml_ops/`.
 2. **Scheduled CI:** Add a `cron` trigger to run data tests weekly.
 3. **Matrix build:** Test against Python 3.10 and 3.11 in GitHub Actions.
 

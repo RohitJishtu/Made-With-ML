@@ -13,9 +13,9 @@
 
 ## Readings (2h)
 
-1. `madewithml/serve.py` — Ray Serve deployment
-2. `madewithml/predict.py` — model loading and prediction logic
-3. `deploy/services/serve_model.py` — production entrypoint
+1. `ai_ml_ops/serve.py` — Ray Serve deployment
+2. `ai_ml_ops/predict.py` — model loading and prediction logic
+3. `ai_ml_ops/serve.py` — production entrypoint
 4. [Ray Serve — Getting Started](https://docs.ray.io/en/latest/serve/getting_started.html)
 5. [FastAPI documentation](https://fastapi.tiangolo.com/)
 
@@ -45,10 +45,10 @@ Production serving should:
 ray start --head
 
 export EXPERIMENT_NAME="week4-tuning"  # or your best experiment
-export RUN_ID=$(python madewithml/predict.py get-best-run-id \
+export RUN_ID=$(python ai_ml_ops/predict.py get-best-run-id \
     --experiment-name $EXPERIMENT_NAME --metric val_loss --mode ASC)
 
-python madewithml/serve.py --run_id $RUN_ID
+python ai_ml_ops/serve.py --run_id $RUN_ID
 ```
 
 Test with Python:
@@ -115,7 +115,7 @@ Compare CPU vs GPU if available. Record against your Week 1 SLA.
 
 ## Lab 4: Production entrypoint (3h)
 
-Study `deploy/services/serve_model.py` — this is what runs in production (Anyscale Service or KubeRay).
+Study `ai_ml_ops/serve.py` — this is what runs in production (KubeRay on Kubernetes).
 
 Identify:
 - How `GITHUB_USERNAME` and S3 paths are used

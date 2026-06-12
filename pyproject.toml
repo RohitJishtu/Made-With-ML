@@ -42,4 +42,4 @@ python_files = "test_*.py"
 
 # Pytest cov
 [tool.coverage.run]
-omit=["madewithml/evaluate.py", "madewithml/serve.py"]
+omit=["ai_ml_ops/evaluate.py", "ai_ml_ops/serve.py"]

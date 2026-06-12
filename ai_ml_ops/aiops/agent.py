@@ -15,7 +15,7 @@ def route(
     model: Annotated[str, typer.Option("--model")] = "llama3.2:1b",
 ) -> None:
     """Route a query to RAG (question) or suggest classifier (title/description)."""
-    from madewithml.aiops.rag import ask
+    from ai_ml_ops.aiops.rag import ask
 
     lowered = query.lower().strip()
     # Heuristic router — replace with an LLM router in capstone extensions

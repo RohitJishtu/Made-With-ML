@@ -13,9 +13,9 @@
 
 ## Readings (2h)
 
-1. `deploy/cluster_env.yaml` — Anyscale environment spec (maps to Dockerfile)
-2. `deploy/cluster_compute.yaml` — compute resources
-3. `deploy/jobs/workloads.yaml` — batch job orchestration
+1. `deploy/Dockerfile` — container image for training and serving
+2. `deploy/docker-compose.yaml` — local MLflow, Ollama, Langfuse stack
+3. `deploy/k8s/ray-cluster.yaml` — KubeRay cluster manifest
 4. [KubeRay — Getting Started](https://docs.ray.io/en/latest/cluster/kubernetes/getting-started.html)
 5. [Docker — Python guide](https://docs.docker.com/language/python/)
 
@@ -31,9 +31,9 @@
 | Orchestration | KubeRay operator | Manage Ray clusters |
 | Scheduling | Kubernetes | Resource allocation |
 
-### From Anyscale config to Docker
+### Dockerfile structure
 
-`deploy/cluster_env.yaml` defines pip packages and env vars → equivalent:
+`deploy/Dockerfile` defines pip packages and application code:
 
 ```dockerfile
 FROM python:3.10-slim
@@ -44,9 +44,9 @@ COPY . .
 ENV PYTHONPATH=/app
 ```
 
-## Lab 1: Write a Dockerfile (3h)
+## Lab 1: Build the Dockerfile (3h)
 
-Create `deploy/Dockerfile` in your fork:
+Review and build `deploy/Dockerfile`:
 
 ```dockerfile
 FROM python:3.10-slim
@@ -59,20 +59,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY madewithml/ madewithml/
+COPY ai_ml_ops/ ai_ml_ops/
 COPY deploy/ deploy/
 COPY datasets/ datasets/
 
 ENV PYTHONPATH=/app
 
 EXPOSE 8000
-CMD ["python", "madewithml/serve.py", "--run_id", "REPLACE_AT_DEPLOY"]
+CMD ["python", "ai_ml_ops/serve.py", "--run_id", "REPLACE_AT_DEPLOY"]
 ```
 
 Build and test:
 
 ```bash
-docker build -f deploy/Dockerfile -t madewithml-serve:latest .
+docker build -f deploy/Dockerfile -t ai-ml-ops-serve:latest .
 # Run requires a valid run_id baked in or passed via env
 ```
 
@@ -118,7 +118,7 @@ Minimal `deploy/k8s/ray-cluster.yaml` template:
 apiVersion: ray.io/v1
 kind: RayCluster
 metadata:
-  name: madewithml-cluster
+  name: ai-ml-ops-cluster
 spec:
   rayVersion: "2.7.0"
   headGroupSpec:
@@ -128,23 +128,29 @@ spec:
       spec:
         containers:
           - name: ray-head
-            image: madewithml-serve:latest
+            image: ai-ml-ops-serve:latest
             resources:
               limits:
                 cpu: "2"
                 memory: "4Gi"
 ```
 
-## Lab 4: Job orchestration (3h)
+## Lab 4: Batch job orchestration (3h)
 
-Study `deploy/jobs/workloads.yaml` — a single job that runs train → evaluate sequentially.
+Submit training as a Ray Job (local cluster):
 
-For open source, replace S3 upload paths with:
-- Persistent volumes on K8s
-- MinIO for S3-compatible storage
-- MLflow artifact store on shared volume
+```bash
+ray job submit --working-dir . -- \
+  python ai_ml_ops/train.py \
+    --experiment-name batch-run \
+    --dataset-loc datasets/dataset.csv \
+    --train-loop-config '{"dropout_p": 0.5, "lr": 1e-4, "lr_factor": 0.8, "lr_patience": 3}' \
+    --num-workers 1 --cpu-per-worker 2 --gpu-per-worker 0 \
+    --num-epochs 3 --batch-size 64 \
+    --results-fp results/batch_training.json
+```
 
-Document your chosen approach in `docs/my-project/infra.md`.
+For Kubernetes, mount a persistent volume for MLflow artifacts. Document your approach in `docs/my-project/infra.md`.
 
 ## Exercise: Architecture diagram
 

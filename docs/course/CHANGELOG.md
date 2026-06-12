@@ -7,7 +7,7 @@ Track curriculum changes across cohorts. Facilitators: add an entry after each c
 ### Added
 - AIOps extension track (Weeks 9–10): RAG, LLM serving, eval, guardrails
 - Session operations: facilitator guide, session templates, cohort playbook, registry, alumni track, roadmap
-- Starter code: `madewithml/aiops/`, `requirements-aiops.txt`
+- Starter code: `ai_ml_ops/aiops/`, `requirements-aiops.txt`
 - Docker Compose services: Ollama, Langfuse
 
 ## [1.0.0] — 2026-06-06 — Initial cohort template

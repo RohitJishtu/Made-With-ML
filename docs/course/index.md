@@ -1,6 +1,6 @@
 # MLOps + AIOps Course (Open Source)
 
-A hands-on **10-week** curriculum for building and operating production ML and LLM systems using **100% open source** tools. You will design, develop, deploy, and iterate on a real ML application — the [Made With ML](https://github.com/GokuMohandas/Made-With-ML) text classifier — then extend it with a RAG assistant in the **AIOps track**.
+A hands-on **10-week** curriculum for building and operating production ML and LLM systems using **100% open source** tools. You will design, develop, deploy, and iterate on a real ML application — the **AI_ML_Ops** text classifier — then extend it with a RAG assistant in the **AIOps track**.
 
 ## Who this is for
 
@@ -42,7 +42,7 @@ You can run an **8-week MLOps cohort** first, then bring learners back for **Ses
 
 ### AIOps (Weeks 9–10)
 
-9. A **RAG assistant** over your ML project corpus (`madewithml/aiops/`)
+9. A **RAG assistant** over your ML project corpus (`ai_ml_ops/aiops/`)
 10. **LLM evaluation**, guardrails, tracing, and an **AIOps capstone**
 
 ## Course structure
@@ -78,8 +78,8 @@ See [AIOps track overview](aiops-track.md), [tech stack](tech-stack.md), [schedu
 ## How to use this repo
 
 ```bash
-git clone https://github.com/GokuMohandas/Made-With-ML.git
-cd Made-With-ML
+git clone https://github.com/YOUR_USERNAME/AI_ML_Ops.git
+cd AI_ML_Ops
 python3 -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
 export PYTHONPATH=$PYTHONPATH:$PWD
@@ -90,9 +90,9 @@ pip install -r requirements-aiops.txt
 
 | Component | Location |
 |-----------|----------|
-| Exploration notebook | `notebooks/madewithml.ipynb` |
-| MLOps scripts | `madewithml/` |
-| AIOps scripts | `madewithml/aiops/` |
+| Exploration notebook | `notebooks/course.ipynb` |
+| MLOps scripts | `ai_ml_ops/` |
+| AIOps scripts | `ai_ml_ops/aiops/` |
 | Tests | `tests/` |
 | Deployment configs | `deploy/` |
 | CI/CD workflows | `.github/workflows/` |

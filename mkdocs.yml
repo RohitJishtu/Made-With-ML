@@ -1,6 +1,5 @@
-site_name: Made With ML
-site_url: https://madewithml.com/
-repo_url: https://github.com/GokuMohandas/Made-With-ML/
+site_name: AI_ML_Ops
+repo_url: https://github.com/RohitJishtu/AI_ML_Ops/
 nav:
   - Home: index.md
   - MLOps + AIOps Course:
@@ -30,17 +29,17 @@ nav:
       - Cohort Registry: course/sessions/cohort-registry.md
       - Alumni Track: course/sessions/alumni-track.md
       - Roadmap: course/sessions/roadmap.md
-  - madewithml:
-    - data: madewithml/data.md
-    - models: madewithml/models.md
-    - train: madewithml/train.md
-    - tune: madewithml/tune.md
-    - evaluate: madewithml/evaluate.md
-    - predict: madewithml/predict.md
-    - serve: madewithml/serve.md
-    - utils: madewithml/utils.md
+  - ai_ml_ops:
+    - data: ai_ml_ops/data.md
+    - models: ai_ml_ops/models.md
+    - train: ai_ml_ops/train.md
+    - tune: ai_ml_ops/tune.md
+    - evaluate: ai_ml_ops/evaluate.md
+    - predict: ai_ml_ops/predict.md
+    - serve: ai_ml_ops/serve.md
+    - utils: ai_ml_ops/utils.md
 theme: readthedocs
 plugins:
   - mkdocstrings
 watch:
-  - .  # reload docs for any file changes
+  - .

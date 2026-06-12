@@ -1,7 +1,7 @@
 import pytest
 
-from madewithml import predict
-from madewithml.predict import TorchPredictor
+from ai_ml_ops import predict
+from ai_ml_ops.predict import TorchPredictor
 
 
 def pytest_addoption(parser):

@@ -6,7 +6,7 @@ import pytest
 import torch
 from ray.train.torch import get_device
 
-from madewithml import utils
+from ai_ml_ops import utils
 
 
 def test_set_seed():

@@ -56,11 +56,11 @@ flowchart LR
 | Layer | Tool | Role in this course | Repo usage |
 |-------|------|---------------------|------------|
 | Language | Python 3.10 | All workloads | Entire codebase |
-| Compute | [Ray](https://ray.io) | Distributed data, train, tune, serve | `madewithml/train.py`, `tune.py`, `serve.py` |
-| Deep learning | [PyTorch](https://pytorch.org) + [Transformers](https://huggingface.co/docs/transformers) | Text classification model | `madewithml/models.py` |
-| Tracking | [MLflow](https://mlflow.org) | Experiments, artifacts, model registry | `madewithml/config.py`, training scripts |
-| Serving | [Ray Serve](https://docs.ray.io/en/latest/serve/) + [FastAPI](https://fastapi.tiangolo.com) | Production inference API | `madewithml/serve.py` |
-| CLI | [Typer](https://typer.tiangolo.com) | Script interfaces | All `madewithml/*.py` entry points |
+| Compute | [Ray](https://ray.io) | Distributed data, train, tune, serve | `ai_ml_ops/train.py`, `tune.py`, `serve.py` |
+| Deep learning | [PyTorch](https://pytorch.org) + [Transformers](https://huggingface.co/docs/transformers) | Text classification model | `ai_ml_ops/models.py` |
+| Tracking | [MLflow](https://mlflow.org) | Experiments, artifacts, model registry | `ai_ml_ops/config.py`, training scripts |
+| Serving | [Ray Serve](https://docs.ray.io/en/latest/serve/) + [FastAPI](https://fastapi.tiangolo.com) | Production inference API | `ai_ml_ops/serve.py` |
+| CLI | [Typer](https://typer.tiangolo.com) | Script interfaces | All `ai_ml_ops/*.py` entry points |
 | Testing | [pytest](https://pytest.org) | Code, data, model tests | `tests/` |
 | Data quality | [Great Expectations](https://greatexpectations.io) | Schema and distribution checks | Week 2 exercises |
 | Linting | [black](https://black.readthedocs.io), [isort](https://pycqa.github.io/isort/), [flake8](https://flake8.pycqa.org) | Code style | `pyproject.toml`, pre-commit |
@@ -86,13 +86,13 @@ Install with `pip install -r requirements-aiops.txt`.
 | Layer | Tool | Role in this course | Repo usage |
 |-------|------|---------------------|------------|
 | LLM runtime | [Ollama](https://ollama.com) | Local open source LLM serving | `deploy/docker-compose.yaml` |
-| Embeddings | [sentence-transformers](https://www.sbert.net/) | Text embeddings for retrieval | `madewithml/aiops/rag.py` |
+| Embeddings | [sentence-transformers](https://www.sbert.net/) | Text embeddings for retrieval | `ai_ml_ops/aiops/rag.py` |
 | Vector store | [Chroma](https://www.trychroma.com/) | Persist document index | `results/rag_index/` |
-| RAG framework | [LlamaIndex](https://www.llamaindex.ai/) | Chunk, retrieve, generate | `madewithml/aiops/rag.py` |
+| RAG framework | [LlamaIndex](https://www.llamaindex.ai/) | Chunk, retrieve, generate | `ai_ml_ops/aiops/rag.py` |
 | Tracing | [Langfuse](https://langfuse.com/) | LLM request traces (self-hosted) | `--trace` flag on `rag.py ask` |
-| LLM eval | [Ragas](https://docs.ragas.io/) | Faithfulness, relevancy scores | `madewithml/aiops/evaluate.py` |
-| Prompt testing | [promptfoo](https://www.promptfoo.dev/) | Regression tests for prompts | `madewithml/aiops/promptfooconfig.yaml` |
-| Guardrails | `madewithml/aiops/guards.py` | Input/output safety checks | Lightweight built-in guards |
+| LLM eval | [Ragas](https://docs.ragas.io/) | Faithfulness, relevancy scores | `ai_ml_ops/aiops/evaluate.py` |
+| Prompt testing | [promptfoo](https://www.promptfoo.dev/) | Regression tests for prompts | `ai_ml_ops/aiops/promptfooconfig.yaml` |
+| Guardrails | `ai_ml_ops/aiops/guards.py` | Input/output safety checks | Lightweight built-in guards |
 
 ```mermaid
 flowchart LR
@@ -118,19 +118,15 @@ See [aiops-track.md](aiops-track.md) for MLOps vs AIOps comparison.
 | [Prometheus](https://prometheus.io) + [Grafana](https://grafana.com) | Metrics dashboards | Production monitoring |
 | [MinIO](https://min.io) | S3-compatible object storage | Self-hosted artifact store |
 
-## Replacing managed services
+## Deployment options (open source)
 
-The original Made With ML deployment path uses Anyscale for jobs and services. This course teaches equivalent open source paths:
-
-| Managed (original course) | Open source alternative |
-|---------------------------|-------------------------|
-| Anyscale Workspaces | Local Ray cluster or JupyterLab |
-| Anyscale Jobs | `ray job submit` or GitHub Actions + Ray |
-| Anyscale Services | Ray Serve on K8s (KubeRay) |
-| S3 (AWS) | MinIO or local filesystem |
-| Anyscale cluster env | Docker image + `requirements.txt` |
-
-You can still follow the Anyscale path from the main README if you have access — the concepts are identical.
+| Need | Tool |
+|------|------|
+| Local development | Ray cluster + JupyterLab |
+| Batch training jobs | `ray job submit` or GitHub Actions |
+| Production API | Ray Serve on KubeRay |
+| Artifact storage | Local filesystem, MinIO, or MLflow |
+| Reproducible env | Docker + `requirements.txt` |
 
 ## Minimum hardware
 
@@ -161,5 +157,5 @@ ray start --head
 # AIOps stack (Weeks 9-10)
 pip install -r requirements-aiops.txt
 docker compose -f deploy/docker-compose.yaml up ollama mlflow -d
-python madewithml/aiops/rag.py build-index --corpus datasets/projects.csv
+python ai_ml_ops/aiops/rag.py build-index --corpus datasets/projects.csv
 ```

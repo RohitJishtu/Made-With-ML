@@ -10,12 +10,12 @@ By the end of this week you will be able to:
 
 - Explain the ML system lifecycle (design → develop → deploy → iterate)
 - Draw a component diagram for a production ML application
-- Set up the Made With ML development environment
+- Set up the AI ML Ops development environment
 - Run the exploration notebook end-to-end on your machine
 
 ## Readings (2h)
 
-1. [Made With ML course overview](https://madewithml.com/) — skim all lesson titles
+1. [AI ML Ops course overview](https://ai_ml_ops.com/) — skim all lesson titles
 2. Repository [README](../../README.md) — Set up, Notebook, and Scripts sections
 3. [Ray documentation — What is Ray?](https://docs.ray.io/en/latest/ray-overview/index.html)
 
@@ -46,8 +46,8 @@ This is a multi-class text classification problem — small enough to run locall
 ## Lab 1: Environment setup (2h)
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Made-With-ML.git  # your fork
-cd Made-With-ML
+git clone https://github.com/YOUR_USERNAME/AI_ML_Ops.git  # your fork
+cd AI_ML_Ops
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -59,16 +59,16 @@ Verify:
 
 ```bash
 python -c "import ray, mlflow, torch; print('OK')"
-jupyter lab notebooks/madewithml.ipynb
+jupyter lab notebooks/course.ipynb
 ```
 
 ## Lab 2: Explore the notebook (3h)
 
-Open `notebooks/madewithml.ipynb` and work through:
+Open `notebooks/course.ipynb` and work through:
 
 1. **Data** — load `datasets/dataset.csv`, inspect class distribution
 2. **Preprocessing** — tokenization with Hugging Face Transformers
-3. **Model** — fine-tune a small transformer (see `madewithml/models.py`)
+3. **Model** — fine-tune a small transformer (see `ai_ml_ops/models.py`)
 4. **Training** — single-node training loop
 
 Take notes on:

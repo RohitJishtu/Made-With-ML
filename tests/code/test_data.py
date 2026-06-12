@@ -2,7 +2,7 @@ import pandas as pd
 import pytest
 import ray
 
-from madewithml import data
+from ai_ml_ops import data
 
 
 @pytest.fixture(scope="module")

@@ -7,7 +7,7 @@ from typing import Annotated, List
 import pandas as pd
 import typer
 
-from madewithml.aiops.rag import ask
+from ai_ml_ops.aiops.rag import ask
 
 app = typer.Typer()
 

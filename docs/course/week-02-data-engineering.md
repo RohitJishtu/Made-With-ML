@@ -14,7 +14,7 @@
 ## Readings (2h)
 
 1. Explore `datasets/` — `dataset.csv`, `holdout.csv`, `tags.csv`, `projects.csv`
-2. `madewithml/data.py` — how training data is loaded and preprocessed
+2. `ai_ml_ops/data.py` — how training data is loaded and preprocessed
 3. [Great Expectations — Getting started](https://docs.greatexpectations.io/docs/guides/setup/configuring_metadata_stores/)
 4. [Snorkel documentation](https://snorkel.readthedocs.io/en/stable/)
 
@@ -143,7 +143,7 @@ columns:
 
 | File | Role |
 |------|------|
-| `madewithml/data.py` | Ray dataset loading and preprocessing |
+| `ai_ml_ops/data.py` | Ray dataset loading and preprocessing |
 | `tests/data/test_dataset.py` | Existing data tests — extend these |
 | `datasets/holdout.csv` | Held-out set — never use for training |
 

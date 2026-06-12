@@ -3,7 +3,7 @@ import json
 import pytest
 import utils
 
-from madewithml import tune
+from ai_ml_ops import tune
 
 
 @pytest.mark.training

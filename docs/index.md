@@ -1,11 +1,10 @@
-## Documentation
+# AI_ML_Ops Documentation
 
-- [madewithml](madewithml/data.md): API documentation for each module.
-- [MLOps + AIOps Course](course/index.md): open source 10-week curriculum with [session operations](course/sessions/README.md) for repeat cohorts.
+## Course
 
-## Lessons
+- [MLOps + AIOps Course](course/index.md) — 10-week open source curriculum
+- [Live sessions](course/sessions/README.md) — facilitator guides for repeat cohorts
 
-Learn how to combine machine learning with software engineering to design, develop, deploy and iterate on production ML applications.
+## API reference
 
-- **Lessons**: [https://madewithml.com/](https://madewithml.com/#course)
-- **Code**: [GokuMohandas/Made-With-ML](https://github.com/GokuMohandas/Made-With-ML)
+- [ai_ml_ops](ai_ml_ops/data.md) — package documentation

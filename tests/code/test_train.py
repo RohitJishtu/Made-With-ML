@@ -3,7 +3,7 @@ import json
 import pytest
 import utils
 
-from madewithml import train
+from ai_ml_ops import train
 
 
 @pytest.mark.training

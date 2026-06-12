@@ -28,7 +28,7 @@
 |------|----------|
 | 0:00 | Recap kickoff blockers |
 | 0:10 | Whiteboard: design → develop → deploy → iterate |
-| 0:25 | Live: open `notebooks/madewithml.ipynb`, explore data |
+| 0:25 | Live: open `notebooks/course.ipynb`, explore data |
 | 0:50 | Break |
 | 0:55 | Start system design doc template together |
 | 0:85 | Homework: finish design doc + notebook through training section |
@@ -61,7 +61,7 @@
 | Time | Activity |
 |------|----------|
 | 0:00 | Start a short training run at session open |
-| 0:10 | Walk through `madewithml/models.py` and `train.py` |
+| 0:10 | Walk through `ai_ml_ops/models.py` and `train.py` |
 | 0:30 | Live: launch training, open MLflow UI |
 | 0:50 | Break |
 | 0:55 | Compare two runs with different learning rates |
@@ -111,7 +111,7 @@
 | 0:30 | Demo: pre-commit hooks |
 | 0:45 | Live: push branch, watch `ci-opensource` workflow |
 | 0:60 | Break |
-| 0:65 | Walk through full Anyscale CI path (conceptual) |
+| 0:65 | Review CI workflow and optional train-smoke job |
 | 0:85 | Homework: green CI on fork + quality gates doc |
 
 **Budget extra time** for Git auth and fork secrets.

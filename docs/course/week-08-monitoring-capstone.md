@@ -15,7 +15,7 @@
 
 1. [Evidently — Drift detection](https://docs.evidentlyai.com/)
 2. [MLflow Model Registry](https://mlflow.org/docs/latest/model-registry.html)
-3. Made With ML [monitoring lesson](https://madewithml.com/courses/mlops/monitoring/) (conceptual)
+3. AI ML Ops [monitoring lesson](https://ai_ml_ops.com/courses/mlops/monitoring/) (conceptual)
 4. Review all prior weekly deliverables
 
 ## Key concepts
@@ -51,7 +51,7 @@ Install Evidently (add to a `requirements-monitoring.txt` or install ad hoc):
 pip install evidently
 ```
 
-Create `madewithml/monitor.py` (or a notebook):
+Create `ai_ml_ops/monitor.py` (or a notebook):
 
 ```python
 import pandas as pd

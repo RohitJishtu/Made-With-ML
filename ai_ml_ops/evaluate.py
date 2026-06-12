@@ -12,9 +12,9 @@ from sklearn.metrics import precision_recall_fscore_support
 from snorkel.slicing import PandasSFApplier, slicing_function
 from typing_extensions import Annotated
 
-from madewithml import predict, utils
-from madewithml.config import logger
-from madewithml.predict import TorchPredictor
+from ai_ml_ops import predict, utils
+from ai_ml_ops.config import logger
+from ai_ml_ops.predict import TorchPredictor
 
 # Initialize Typer CLI app
 app = typer.Typer()

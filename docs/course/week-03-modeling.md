@@ -6,16 +6,16 @@
 
 ## Learning objectives
 
-- Understand the model architecture in `madewithml/models.py`
+- Understand the model architecture in `ai_ml_ops/models.py`
 - Run distributed training with Ray Train
 - Log parameters, metrics, and artifacts to MLflow
 - Compare runs in the MLflow UI
 
 ## Readings (2h)
 
-1. `madewithml/models.py` — `FinetunedLLM` class
-2. `madewithml/train.py` — Ray Train integration
-3. `madewithml/config.py` — paths and MLflow registry config
+1. `ai_ml_ops/models.py` — `FinetunedLLM` class
+2. `ai_ml_ops/train.py` — Ray Train integration
+3. `ai_ml_ops/config.py` — paths and MLflow registry config
 4. [Ray Train — PyTorch guide](https://docs.ray.io/en/latest/train/getting-started-pytorch.html)
 5. [MLflow Tracking](https://mlflow.org/docs/latest/tracking.html)
 
@@ -41,7 +41,7 @@ Every training run should record:
 
 ## Lab 1: Understand the model (2h)
 
-Read `madewithml/models.py`:
+Read `ai_ml_ops/models.py`:
 
 - Base model: DistilBERT (lightweight transformer)
 - Task: multi-class classification
@@ -56,7 +56,7 @@ export EXPERIMENT_NAME="week3-baseline"
 export DATASET_LOC="datasets/dataset.csv"
 export TRAIN_LOOP_CONFIG='{"dropout_p": 0.5, "lr": 1e-4, "lr_factor": 0.8, "lr_patience": 3}'
 
-python madewithml/train.py \
+python ai_ml_ops/train.py \
     --experiment-name "$EXPERIMENT_NAME" \
     --dataset-loc "$DATASET_LOC" \
     --train-loop-config "$TRAIN_LOOP_CONFIG" \
@@ -73,7 +73,7 @@ On a machine with a GPU, set `--gpu-per-worker 1` and increase workers.
 ## Lab 3: MLflow UI (2h)
 
 ```bash
-export MODEL_REGISTRY=$(python -c "from madewithml import config; print(config.MODEL_REGISTRY)")
+export MODEL_REGISTRY=$(python -c "from ai_ml_ops import config; print(config.MODEL_REGISTRY)")
 mlflow server -h 0.0.0.0 -p 8080 --backend-store-uri $MODEL_REGISTRY
 ```
 
@@ -89,7 +89,7 @@ Open `http://localhost:8080` and:
 Scale to multiple workers (adjust to your hardware):
 
 ```bash
-python madewithml/train.py \
+python ai_ml_ops/train.py \
     --experiment-name "week3-distributed" \
     --dataset-loc "$DATASET_LOC" \
     --train-loop-config "$TRAIN_LOOP_CONFIG" \
@@ -105,7 +105,7 @@ Compare wall-clock time and final metrics vs the baseline run.
 
 ## Lab 5: Refactor notebook → script diff (2h)
 
-Open `notebooks/madewithml.ipynb` side-by-side with `madewithml/train.py`. Document:
+Open `notebooks/course.ipynb` side-by-side with `ai_ml_ops/train.py`. Document:
 
 - What was extracted into `data.py`, `models.py`, `utils.py`?
 - What configuration moved to CLI args?

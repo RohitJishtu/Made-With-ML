@@ -9,7 +9,7 @@ import pandas as pd
 import typer
 from typing_extensions import Annotated
 
-from madewithml.aiops.guards import check_input, check_output, refusal_message
+from ai_ml_ops.aiops.guards import check_input, check_output, refusal_message
 
 app = typer.Typer()
 PROMPT_PATH = Path(__file__).parent / "prompts" / "rag_system.txt"

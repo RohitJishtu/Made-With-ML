@@ -25,9 +25,9 @@ from torch.nn.parallel.distributed import DistributedDataParallel
 from transformers import BertModel
 from typing_extensions import Annotated
 
-from madewithml import data, utils
-from madewithml.config import EFS_DIR, MLFLOW_TRACKING_URI, logger
-from madewithml.models import FinetunedLLM
+from ai_ml_ops import data, utils
+from ai_ml_ops.config import EFS_DIR, MLFLOW_TRACKING_URI, logger
+from ai_ml_ops.models import FinetunedLLM
 
 # Initialize Typer CLI app
 app = typer.Typer()

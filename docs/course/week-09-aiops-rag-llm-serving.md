@@ -21,7 +21,7 @@ pip install -r requirements-aiops.txt
 
 1. [LlamaIndex — Getting Started](https://docs.llamaindex.ai/en/stable/)
 2. [Ollama documentation](https://github.com/ollama/ollama/blob/main/docs/api.md)
-3. `madewithml/aiops/rag.py` — reference RAG implementation in this repo
+3. `ai_ml_ops/aiops/rag.py` — reference RAG implementation in this repo
 4. [Langfuse self-hosting](https://langfuse.com/docs/deployment/self-host)
 
 ## Key concepts
@@ -45,7 +45,7 @@ Production LLM apps rarely call a model in isolation. RAG grounds responses in y
 
 Treat prompts like application code:
 
-- Store in `madewithml/aiops/prompts/`
+- Store in `ai_ml_ops/aiops/prompts/`
 - Review in PRs
 - Version with Git tags
 - A/B test with promptfoo (Week 10)
@@ -76,7 +76,7 @@ docker compose -f deploy/docker-compose.yaml up ollama -d
 Use the starter script:
 
 ```bash
-python madewithml/aiops/rag.py build-index \
+python ai_ml_ops/aiops/rag.py build-index \
     --corpus datasets/projects.csv \
     --index-dir results/rag_index
 ```
@@ -90,13 +90,13 @@ This script:
 Inspect the index:
 
 ```bash
-python madewithml/aiops/rag.py inspect-index --index-dir results/rag_index
+python ai_ml_ops/aiops/rag.py inspect-index --index-dir results/rag_index
 ```
 
 ## Lab 3: Query the RAG pipeline (3h)
 
 ```bash
-python madewithml/aiops/rag.py ask \
+python ai_ml_ops/aiops/rag.py ask \
     --index-dir results/rag_index \
     --question "What are good resources for learning MLOps?" \
     --model llama3.2:1b
@@ -116,7 +116,7 @@ Try 5 questions. Note when retrieval fails (wrong chunks) vs generation fails (h
 
 ## Lab 4: Prompt templates (2h)
 
-Edit `madewithml/aiops/prompts/rag_system.txt`:
+Edit `ai_ml_ops/aiops/prompts/rag_system.txt`:
 
 ```
 You are an ML project assistant. Answer ONLY using the provided context.
@@ -151,7 +151,7 @@ export LANGFUSE_HOST=http://localhost:3000
 Run a traced query:
 
 ```bash
-python madewithml/aiops/rag.py ask \
+python ai_ml_ops/aiops/rag.py ask \
     --index-dir results/rag_index \
     --question "Explain transfer learning" \
     --trace
@@ -161,7 +161,7 @@ Open Langfuse UI — verify you see retrieval chunks, prompt, and latency.
 
 ## Lab 6: Add `/ask` endpoint (1h)
 
-Extend `madewithml/serve.py` or create `madewithml/aiops/serve_rag.py` to expose:
+Extend `ai_ml_ops/serve.py` or create `ai_ml_ops/aiops/serve_rag.py` to expose:
 
 ```
 POST /ask
@@ -175,7 +175,7 @@ POST /ask
 Compare RAG vs zero-shot (no retrieval):
 
 ```bash
-python madewithml/aiops/rag.py ask --question "..." --no-retrieval
+python ai_ml_ops/aiops/rag.py ask --question "..." --no-retrieval
 ```
 
 Log 3 cases where RAG clearly helps and 1 where it does not.

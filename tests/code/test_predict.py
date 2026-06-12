@@ -1,4 +1,4 @@
-from madewithml import predict
+from ai_ml_ops import predict
 
 
 def test_decode():

@@ -8,12 +8,12 @@ from fastapi import FastAPI
 from ray import serve
 from starlette.requests import Request
 
-from madewithml import evaluate, predict
-from madewithml.config import MLFLOW_TRACKING_URI, mlflow
+from ai_ml_ops import evaluate, predict
+from ai_ml_ops.config import MLFLOW_TRACKING_URI, mlflow
 
 # Define application
 app = FastAPI(
-    title="Made With ML",
+    title="AI ML Ops",
     description="Classify machine learning projects.",
     version="0.1",
 )

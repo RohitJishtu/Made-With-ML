@@ -2,7 +2,7 @@
 
 The core course (Weeks 1–8) teaches **MLOps** — operating classical ML systems in production. The **AIOps extension** (Weeks 9–10) teaches **AI Operations** — running LLM-powered applications reliably at scale.
 
-Both tracks use the same Made With ML project as the anchor, then extend it with a RAG assistant over your ML topic dataset.
+Both tracks use the same AI_ML_Ops project as the anchor, then extend it with a RAG assistant over your ML topic dataset.
 
 ## MLOps vs AIOps
 

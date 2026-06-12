@@ -14,7 +14,7 @@ Planned evolution of the MLOps + AIOps curriculum. Update after each cohort retr
 
 | Item | Status | Notes |
 |------|--------|-------|
-| Week 11 draft: Agent ops | Planned | Extend `madewithml/aiops/agent.py` |
+| Week 11 draft: Agent ops | Planned | Extend `ai_ml_ops/aiops/agent.py` |
 | OpenTelemetry integration | Planned | Unified traces MLOps + AIOps |
 | `requirements-aiops.txt` pin review | Planned | Quarterly |
 

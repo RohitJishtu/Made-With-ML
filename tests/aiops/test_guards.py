@@ -1,6 +1,6 @@
 """Tests for AIOps input/output guards."""
 
-from madewithml.aiops.guards import check_input, check_output, refusal_message
+from ai_ml_ops.aiops.guards import check_input, check_output, refusal_message
 
 
 def test_check_input_accepts_valid_question():

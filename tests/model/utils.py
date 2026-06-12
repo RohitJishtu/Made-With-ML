@@ -1,6 +1,6 @@
 import ray
 
-from madewithml import predict
+from ai_ml_ops import predict
 
 
 def get_label(text, predictor):

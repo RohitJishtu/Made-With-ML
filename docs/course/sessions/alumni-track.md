@@ -31,8 +31,8 @@ Between live sessions, optional GitHub challenges:
 |-----------|------------|-----------|
 | Add DVC data versioning | Medium | `datasets/` |
 | Scheduled drift check in CI | Medium | `.github/workflows/` |
-| Prompt A/B test with promptfoo | Easy | `madewithml/aiops/` |
-| Multi-model router (classifier + RAG) | Hard | `madewithml/serve.py` |
+| Prompt A/B test with promptfoo | Easy | `ai_ml_ops/aiops/` |
+| Multi-model router (classifier + RAG) | Hard | `ai_ml_ops/serve.py` |
 | Contributor: improve week guide | Easy | `docs/course/` |
 
 Tag PRs with `alumni-challenge` on your fork. Best submissions can be PR'd back to main.
