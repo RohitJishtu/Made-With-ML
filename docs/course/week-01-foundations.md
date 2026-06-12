@@ -1,136 +1,62 @@
 # Week 1: Foundations & System Design
 
-**Goal:** Understand what MLOps is, design your ML system on paper, and get this repository running locally.
+**Goal:** Understand MLOps and design your ML system before writing code.
 
 **Time:** ~10 hours
 
-## Learning objectives
+## Objectives
 
-By the end of this week you will be able to:
+- Explain design → develop → deploy → iterate
+- Draw a production ML architecture diagram
+- Set up a Python dev environment in your own repo
+- Choose a project problem and success metrics
 
-- Explain the ML system lifecycle (design → develop → deploy → iterate)
-- Draw a component diagram for a production ML application
-- Set up the AI ML Ops development environment
-- Run the exploration notebook end-to-end on your machine
+## Readings
 
-## Readings (2h)
-
-1. [AI ML Ops course overview](https://ai_ml_ops.com/) — skim all lesson titles
-2. Repository [README](../../README.md) — Set up, Notebook, and Scripts sections
-3. [Ray documentation — What is Ray?](https://docs.ray.io/en/latest/ray-overview/index.html)
+- [Ray overview](https://docs.ray.io/en/latest/ray-overview/index.html)
+- [MLflow tracking](https://mlflow.org/docs/latest/tracking.html) — skim
 
 ## Key concepts
-
-### MLOps vs ML
 
 | ML | MLOps |
 |----|-------|
 | Model accuracy | System reliability |
-| Notebook experiments | Versioned, tested code |
-| Manual training | Automated pipelines |
-| "It works on my machine" | Reproducible environments |
+| Notebooks | Versioned, tested code |
+| Manual runs | Automated pipelines |
 
-### The four phases
+## Labs
 
-1. **Design** — define the problem, metrics, and data requirements
-2. **Develop** — explore data, train models, track experiments
-3. **Deploy** — serve predictions, integrate with products
-4. **Iterate** — monitor, retrain, improve continuously
-
-### Our project: ML topic classifier
-
-Given a project **title** and **description**, predict the ML topic tag (e.g. `natural-language-processing`, `computer-vision`, `mlops`).
-
-This is a multi-class text classification problem — small enough to run locally, realistic enough to exercise full MLOps.
-
-## Lab 1: Environment setup (2h)
+### Lab 1: Create your project repo (2h)
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/AI_ML_Ops.git  # your fork
-cd AI_ML_Ops
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-pre-commit install
-export PYTHONPATH=$PYTHONPATH:$PWD
+mkdir my-ml-project && cd my-ml-project
+git init
+python3 -m venv venv && source venv/bin/activate
+pip install ray mlflow torch pytest
 ```
 
-Verify:
+### Lab 2: Pick your problem (2h)
 
-```bash
-python -c "import ray, mlflow, torch; print('OK')"
-jupyter lab notebooks/course.ipynb
-```
+Choose a supervised ML task (e.g. text classification, tabular prediction). Define:
 
-## Lab 2: Explore the notebook (3h)
+- Input and output
+- Success metric (e.g. F1 ≥ 0.85)
+- Data source and volume
 
-Open `notebooks/course.ipynb` and work through:
+### Lab 3: System design doc (4h)
 
-1. **Data** — load `datasets/dataset.csv`, inspect class distribution
-2. **Preprocessing** — tokenization with Hugging Face Transformers
-3. **Model** — fine-tune a small transformer (see `ai_ml_ops/models.py`)
-4. **Training** — single-node training loop
+Create `docs/system-design.md` in your repo:
 
-Take notes on:
-- What is hard-coded vs configurable?
-- What would break if new data arrived tomorrow?
-- What is missing for production?
-
-## Lab 3: System design document (3h)
-
-Create `docs/my-project/system-design.md` in your fork:
-
-```markdown
-# ML Topic Classifier — System Design
-
-## Problem
-- Input: title (str), description (str)
-- Output: topic tag + confidence scores
-- Users: internal tagging API for a project catalog
-
-## Success metrics
-- Offline: F1 ≥ 0.85 on holdout set
-- Online: p95 latency < 200ms, error rate < 1%
-
-## Data
-- Source: datasets/dataset.csv (upgrade path: API feed)
-- Volume: ~1K samples today, 10K/month growth
-- Labels: human-annotated tags
-
-## Architecture (draw a diagram)
-[Your diagram here]
-
-## MLOps components needed
-- [ ] Experiment tracking
-- [ ] Data validation
-- [ ] Model registry
-- [ ] Serving API
-- [ ] CI/CD
-- [ ] Monitoring
-
-## Risks
-- Label noise, class imbalance, concept drift
-```
-
-## Exercise
-
-List every open source tool in `requirements.txt` and categorize it:
-
-| Category | Tools |
-|----------|-------|
-| ML / DL | |
-| MLOps | |
-| Testing | |
-| Dev tooling | |
-
-Compare your table to [tech-stack.md](tech-stack.md).
+- Problem statement
+- Architecture diagram
+- MLOps components needed (tracking, tests, serving, CI, monitoring)
+- Risks and failure modes
 
 ## Deliverable
 
-- [ ] Environment runs without import errors
-- [ ] Notebook executes through at least the training section
-- [ ] System design doc committed to your fork
+- [ ] Dev environment works
+- [ ] System design doc committed
 
-## Next week
+## Next
 
-[Week 2: Data Engineering](week-02-data-engineering.md) — validate data quality before it ever reaches your model.
+[Week 2: Data Engineering](week-02-data-engineering.md)

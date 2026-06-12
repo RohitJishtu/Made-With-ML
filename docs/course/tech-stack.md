@@ -1,161 +1,39 @@
 # Open Source Tech Stack
 
-Every tool in this course is open source and can run locally, on a single VM, or on Kubernetes. No paid licenses required.
+All tools are free and self-hostable.
 
-## Architecture overview
+## MLOps
 
-```mermaid
-flowchart LR
-    subgraph dev [Development]
-        NB[Notebooks]
-        SCR[Python Scripts]
-        GIT[Git + pre-commit]
-    end
+| Layer | Tool | Purpose |
+|-------|------|---------|
+| Language | Python 3.10+ | All workloads |
+| Compute | [Ray](https://ray.io) | Distributed train, tune, serve |
+| ML | [PyTorch](https://pytorch.org) + [Transformers](https://huggingface.co/docs/transformers) | Model training |
+| Tracking | [MLflow](https://mlflow.org) | Experiments & registry |
+| Serving | [Ray Serve](https://docs.ray.io/en/latest/serve/) + [FastAPI](https://fastapi.tiangolo.com) | Production API |
+| Data quality | [Great Expectations](https://greatexpectations.io) | Validation |
+| Testing | [pytest](https://pytest.org) | Code, data, model tests |
+| CI/CD | [GitHub Actions](https://github.com/features/actions) | Automation |
+| Containers | [Docker](https://www.docker.com) | Reproducible envs |
+| Orchestration | [Kubernetes](https://kubernetes.io) + [KubeRay](https://docs.ray.io/en/latest/cluster/kubernetes/) | Production cluster |
+| Monitoring | [Evidently](https://www.evidentlyai.com) + [Prometheus](https://prometheus.io) | Drift & metrics |
 
-    subgraph data [Data Layer]
-        CSV[Datasets]
-        GE[Great Expectations]
-        DVC[DVC optional]
-    end
+## AIOps
 
-    subgraph ml [ML Layer]
-        PT[PyTorch + Transformers]
-        RAY[Ray Train / Tune]
-        MLF[MLflow]
-    end
+| Layer | Tool | Purpose |
+|-------|------|---------|
+| LLM runtime | [Ollama](https://ollama.com) | Local model serving |
+| Embeddings | [sentence-transformers](https://www.sbert.net/) | Vector embeddings |
+| Vector store | [Chroma](https://www.trychroma.com/) | Document index |
+| RAG | [LlamaIndex](https://www.llamaindex.ai/) | Retrieve + generate |
+| Tracing | [Langfuse](https://langfuse.com/) | LLM observability |
+| Eval | [Ragas](https://docs.ragas.io/) + [promptfoo](https://www.promptfoo.dev/) | Quality testing |
 
-    subgraph serve [Serving Layer]
-        RS[Ray Serve]
-        API[FastAPI]
-    end
+## Hardware guide
 
-    subgraph ops [Operations]
-        GHA[GitHub Actions]
-        DOCK[Docker]
-        K8S[Kubernetes + KubeRay]
-        EVD[Evidently]
-        PROM[Prometheus]
-    end
-
-    NB --> SCR
-    SCR --> GE
-    GE --> PT
-    PT --> RAY
-    RAY --> MLF
-    MLF --> RS
-    RS --> API
-    GIT --> GHA
-    GHA --> RAY
-    DOCK --> K8S
-    API --> EVD
-    EVD --> PROM
-```
-
-## Core stack (required)
-
-| Layer | Tool | Role in this course | Repo usage |
-|-------|------|---------------------|------------|
-| Language | Python 3.10 | All workloads | Entire codebase |
-| Compute | [Ray](https://ray.io) | Distributed data, train, tune, serve | `ai_ml_ops/train.py`, `tune.py`, `serve.py` |
-| Deep learning | [PyTorch](https://pytorch.org) + [Transformers](https://huggingface.co/docs/transformers) | Text classification model | `ai_ml_ops/models.py` |
-| Tracking | [MLflow](https://mlflow.org) | Experiments, artifacts, model registry | `ai_ml_ops/config.py`, training scripts |
-| Serving | [Ray Serve](https://docs.ray.io/en/latest/serve/) + [FastAPI](https://fastapi.tiangolo.com) | Production inference API | `ai_ml_ops/serve.py` |
-| CLI | [Typer](https://typer.tiangolo.com) | Script interfaces | All `ai_ml_ops/*.py` entry points |
-| Testing | [pytest](https://pytest.org) | Code, data, model tests | `tests/` |
-| Data quality | [Great Expectations](https://greatexpectations.io) | Schema and distribution checks | Week 2 exercises |
-| Linting | [black](https://black.readthedocs.io), [isort](https://pycqa.github.io/isort/), [flake8](https://flake8.pycqa.org) | Code style | `pyproject.toml`, pre-commit |
-| CI/CD | [GitHub Actions](https://github.com/features/actions) | Automated train + deploy | `.github/workflows/` |
-| Containers | [Docker](https://www.docker.com) | Reproducible environments | Week 7 |
-| Orchestration | [Kubernetes](https://kubernetes.io) + [KubeRay](https://docs.ray.io/en/latest/cluster/kubernetes/index.html) | Production cluster | Week 7 |
-
-## Supporting libraries (included in repo)
-
-| Tool | Purpose |
-|------|---------|
-| Hyperopt | Search algorithms for Ray Tune |
-| Snorkel | Weak supervision / programmatic labeling |
-| cleanlab | Label noise detection (notebook) |
-| NLTK | Text preprocessing |
-| scikit-learn | Metrics and utilities |
-| pandas / numpy | Data manipulation |
-
-## AIOps stack (Weeks 9–10)
-
-Install with `pip install -r requirements-aiops.txt`.
-
-| Layer | Tool | Role in this course | Repo usage |
-|-------|------|---------------------|------------|
-| LLM runtime | [Ollama](https://ollama.com) | Local open source LLM serving | `deploy/docker-compose.yaml` |
-| Embeddings | [sentence-transformers](https://www.sbert.net/) | Text embeddings for retrieval | `ai_ml_ops/aiops/rag.py` |
-| Vector store | [Chroma](https://www.trychroma.com/) | Persist document index | `results/rag_index/` |
-| RAG framework | [LlamaIndex](https://www.llamaindex.ai/) | Chunk, retrieve, generate | `ai_ml_ops/aiops/rag.py` |
-| Tracing | [Langfuse](https://langfuse.com/) | LLM request traces (self-hosted) | `--trace` flag on `rag.py ask` |
-| LLM eval | [Ragas](https://docs.ragas.io/) | Faithfulness, relevancy scores | `ai_ml_ops/aiops/evaluate.py` |
-| Prompt testing | [promptfoo](https://www.promptfoo.dev/) | Regression tests for prompts | `ai_ml_ops/aiops/promptfooconfig.yaml` |
-| Guardrails | `ai_ml_ops/aiops/guards.py` | Input/output safety checks | Lightweight built-in guards |
-
-```mermaid
-flowchart LR
-    Q[User question] --> G1[Input guards]
-    G1 --> RAG[RAG retrieve]
-    RAG --> OLL[Ollama LLM]
-    OLL --> G2[Output guards]
-    G2 --> API[/ask response]
-    RAG --> LF[Langfuse trace]
-    API --> EV[Ragas eval]
-```
-
-See [aiops-track.md](aiops-track.md) for MLOps vs AIOps comparison.
-
-## Optional extensions (Week 7–8)
-
-| Tool | Purpose | When to add |
-|------|---------|-------------|
-| [DVC](https://dvc.org) | Data and model versioning | Large datasets or team collaboration |
-| [Feast](https://feast.dev) | Feature store | Multiple models sharing features |
-| [Prefect](https://www.prefect.io) or [Airflow](https://airflow.apache.org) | Workflow orchestration | Scheduled retraining pipelines |
-| [Evidently](https://www.evidentlyai.com) | Data drift and model monitoring | Post-deployment observability |
-| [Prometheus](https://prometheus.io) + [Grafana](https://grafana.com) | Metrics dashboards | Production monitoring |
-| [MinIO](https://min.io) | S3-compatible object storage | Self-hosted artifact store |
-
-## Deployment options (open source)
-
-| Need | Tool |
-|------|------|
-| Local development | Ray cluster + JupyterLab |
-| Batch training jobs | `ray job submit` or GitHub Actions |
-| Production API | Ray Serve on KubeRay |
-| Artifact storage | Local filesystem, MinIO, or MLflow |
-| Reproducible env | Docker + `requirements.txt` |
-
-## Minimum hardware
-
-| Workload | Local laptop | Cloud VM (recommended for Week 3+) |
-|----------|--------------|-------------------------------------|
-| Data + tests | 4 CPU, 8 GB RAM | — |
-| Training (1 GPU epoch) | CPU only (slow) | 1× T4 or better, 16 GB RAM |
-| Tuning (2–5 trials) | CPU, expect hours | 1–2 GPUs |
-| Serving | 2 CPU, 4 GB RAM | 2 CPU, 8 GB RAM |
-| AIOps / RAG (Week 9–10) | 16 GB RAM, CPU Ollama | 16 GB RAM + GPU optional |
-
-Free GPU options: Google Colab (notebook only), Kaggle kernels, or a cloud free tier VM.
-
-## Environment setup (one command reference)
-
-```bash
-python3 -m venv venv && source venv/bin/activate
-pip install -r requirements.txt
-pre-commit install
-export PYTHONPATH=$PYTHONPATH:$PWD
-
-# Start MLflow UI
-mlflow server -h 0.0.0.0 -p 8080 --backend-store-uri ./mlruns
-
-# Start Ray (local)
-ray start --head
-
-# AIOps stack (Weeks 9-10)
-pip install -r requirements-aiops.txt
-docker compose -f deploy/docker-compose.yaml up ollama mlflow -d
-python ai_ml_ops/aiops/rag.py build-index --corpus datasets/projects.csv
-```
+| Workload | Minimum | Recommended |
+|----------|---------|-------------|
+| Weeks 1–2 | 8 GB RAM | 16 GB RAM |
+| Training (3–4) | CPU (slow) | 1× GPU |
+| Serving (5) | 4 GB RAM | 8 GB RAM |
+| AIOps (9–10) | 16 GB RAM + Ollama | GPU optional |
