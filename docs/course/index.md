@@ -43,9 +43,17 @@ This repo contains **course materials only**. You implement labs in your own pro
 
 See also: [schedule](schedule.md) · [tech stack](tech-stack.md) · [AIOps track](aiops-track.md) · [exercises](exercises.md)
 
+## Sample data
+
+Original practice files ship with this repo — see [data/README.md](../../data/README.md):
+
+- `data/samples/ml_topics_train.csv` — classification (Weeks 2–4)
+- `data/samples/rag_corpus.jsonl` — RAG corpus (Week 9)
+- `data/schema/ml_topics.yaml` — data contract (Week 2)
+
 ## Suggested project
 
-Build a **text classifier API** in your own repo (Weeks 1–8), then add a **RAG Q&A assistant** (Weeks 9–10). Any similar ML problem works.
+Build a **text classifier API** in your own repo (Weeks 1–8), then add a **RAG Q&A assistant** (Weeks 9–10). Use the sample data to start, then expand with your own.
 
 ## Deliverables checklist
 

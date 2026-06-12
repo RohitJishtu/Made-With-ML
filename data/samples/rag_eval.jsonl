@@ -1,0 +1,4 @@
+{"question": "What is MLOps?", "ground_truth": "MLOps combines ML with software engineering for production systems.", "must_mention": ["MLflow", "CI/CD"]}
+{"question": "How does Ray help with training?", "ground_truth": "Ray Train scales training across multiple GPUs and workers.", "must_mention": ["Ray Train"]}
+{"question": "What is RAG?", "ground_truth": "RAG retrieves relevant documents and uses them as context for the LLM.", "must_mention": ["vector", "retrieve"]}
+{"question": "How do you validate data before training?", "ground_truth": "Use Great Expectations to define and run data contracts.", "must_mention": ["Great Expectations"]}

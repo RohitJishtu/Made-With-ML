@@ -28,7 +28,7 @@ Search over learning rate, batch size, and regularization. Run at least 4 trials
 
 ### Lab 2: Holdout evaluation (2h)
 
-Evaluate best run on holdout. Report per-class precision, recall, and F1.
+Evaluate on `data/samples/ml_topics_holdout.csv`. Report per-class precision, recall, and F1.
 
 ### Lab 3: Error analysis (2h)
 

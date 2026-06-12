@@ -28,7 +28,7 @@ ollama serve
 
 ### Lab 2: Vector index (3h)
 
-Build a Chroma index over your documents using sentence-transformers embeddings.
+Build a Chroma index over `data/samples/rag_corpus.jsonl` using sentence-transformers embeddings.
 
 ### Lab 3: RAG query pipeline (3h)
 

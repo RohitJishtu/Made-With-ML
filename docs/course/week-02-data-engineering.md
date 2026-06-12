@@ -24,7 +24,7 @@ Validation layers: **schema** → **distribution** → **content** → **pipelin
 
 ### Lab 1: Data profiling (3h)
 
-Load your dataset. Report class balance, null rates, and feature statistics.
+Load `data/samples/ml_topics_train.csv`. Report class balance, null rates, and text length statistics.
 
 ### Lab 2: Great Expectations suite (4h)
 
@@ -36,7 +36,7 @@ Add pytest tests that fail when data violates your contract. Run locally before 
 
 ### Lab 4: Data contract (2h)
 
-Write `data/schema.yaml` documenting columns, types, and allowed values.
+Use [data/schema/ml_topics.yaml](../../data/schema/ml_topics.yaml) as a template. Extend or adapt for your own project.
 
 ## Deliverable
 

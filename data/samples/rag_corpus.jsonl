@@ -1,0 +1,6 @@
+{"id": "doc-001", "title": "MLOps fundamentals", "text": "MLOps combines machine learning with software engineering. Key practices include experiment tracking with MLflow, automated testing, CI/CD pipelines, and model monitoring in production."}
+{"id": "doc-002", "title": "Ray for distributed ML", "text": "Ray Train scales PyTorch and TensorFlow across multiple GPUs. Ray Tune runs hyperparameter search in parallel. Ray Serve deploys models as HTTP APIs with autoscaling."}
+{"id": "doc-003", "title": "Data validation", "text": "Great Expectations lets teams define data contracts. Validate schema types null rates and value distributions before data reaches training pipelines."}
+{"id": "doc-004", "title": "RAG architecture", "text": "Retrieval-augmented generation embeds documents into a vector store retrieves relevant chunks at query time and passes them as context to an LLM for grounded answers."}
+{"id": "doc-005", "title": "LLM evaluation", "text": "Evaluate LLM apps with faithfulness relevancy and safety metrics. Tools like Ragas and promptfoo support regression testing when prompts or models change."}
+{"id": "doc-006", "title": "Kubernetes for ML", "text": "KubeRay manages Ray clusters on Kubernetes. Use Docker images for reproducible environments and horizontal scaling for training and serving workloads."}

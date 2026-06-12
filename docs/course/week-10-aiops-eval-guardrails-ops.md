@@ -22,7 +22,7 @@
 
 ### Lab 1: Eval dataset (2h)
 
-Create `eval/questions.jsonl` with questions, expected topics, and ground-truth answers.
+Start from `data/samples/rag_eval.jsonl` and expand to 10+ questions with ground-truth answers.
 
 ### Lab 2: Ragas evaluation (3h)
 

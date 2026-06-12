@@ -1,0 +1,13 @@
+title,description,tag
+CI/CD for machine learning pipelines,Automate training testing and deployment with GitHub Actions and MLflow.,mlops
+Dockerizing ML services,Package models in containers for reproducible deployments on Kubernetes.,mlops
+Fine-tuning BERT for sentiment,Use a pretrained transformer for text classification on product reviews.,nlp
+Named entity recognition with spaCy,Extract people and organizations from news articles.,nlp
+Object detection with YOLO,Detect and localize objects in real-time video streams.,computer-vision
+Image augmentation for small datasets,Apply rotations and flips to improve classifier generalization.,computer-vision
+Feature stores for production ML,Centralize feature definitions for training and serving parity.,mlops
+Prompt engineering basics,Structure prompts for reliable LLM outputs in production.,nlp
+Monitoring model drift in production,Track input distribution changes and trigger retraining alerts.,mlops
+Semantic search over documentation,Build embeddings and retrieval for internal knowledge bases.,nlp
+Edge deployment for vision models,Run quantized models on mobile and IoT devices.,computer-vision
+General data science workflow,Exploratory analysis and visualization without a specific ML domain.,other

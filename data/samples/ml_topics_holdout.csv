@@ -1,0 +1,5 @@
+title,description,tag
+Hyperparameter tuning with Ray Tune,Search learning rates and batch sizes across parallel trials.,mlops
+Summarization with encoder-decoder models,Generate concise summaries from long technical articles.,nlp
+Segmentation for medical imaging,Pixel-level classification for MRI scan analysis.,computer-vision
+Tabular regression for sales forecasting,Predict revenue using gradient boosting on structured data.,other
